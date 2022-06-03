@@ -18,7 +18,21 @@ Kapetis Adam - 03119034 ([Fleria](https://github.com/Fleria))
 [Python](https://www.python.org/downloads/), with the additional libraries of 
 
 -Flask
+
 -Flask-mySQLdb
+
 -Faker
 
-#
+
+# Installation
+```bash
+pip install -r requirements.txt
+```
+
+# ER Diagram
+[ER.pdf](https://github.com/Fleria/Elidek-DB/files/8835586/ER.pdf)
+
+# Relational Diagram
+
+
+
