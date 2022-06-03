@@ -35,11 +35,22 @@ Connect to server
 
 Run the following SQL scripts:
 
-[create_tables.sql]
-[dummydata.sql]
-[indexes.sql](https://github.com/Fleria/Elidek-DB/blob/main/SQL_scripts/indexes.sql)
-[view_1.sql](https://github.com/Fleria/Elidek-DB/blob/main/SQL_scripts/view_1.sql)
-[view2_sql](https://github.com/Fleria/Elidek-DB/blob/main/SQL_scripts/view_2.sql)
+-[create_tables.sql]
+
+-[dummydata.sql]
+
+-[indexes.sql](https://github.com/Fleria/Elidek-DB/blob/main/SQL_scripts/indexes.sql)
+
+-[view_1.sql](https://github.com/Fleria/Elidek-DB/blob/main/SQL_scripts/view_1.sql)
+
+-[view2_sql](https://github.com/Fleria/Elidek-DB/blob/main/SQL_scripts/view_2.sql)
+
+```bash
+python3 run.py
+```
+
+Copy http://localhost:3000 to browser and view the website
+
 
 # ER Diagram
 [ER.pdf](https://github.com/Fleria/Elidek-DB/files/8835586/ER.pdf)
