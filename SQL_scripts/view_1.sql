@@ -1,4 +1,4 @@
-/*CREATE VIEW view_1 AS*/ 
+CREATE VIEW view_1 AS 
 SELECT first_name, last_name, proj_title 
 FROM projects_researchers 
 INNER JOIN projects ON proj_id = pr_proj_id 
