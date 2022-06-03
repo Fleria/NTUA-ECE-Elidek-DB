@@ -15,6 +15,9 @@ Kapetis Adam - 03119034 ([Fleria] (https://github.com/Fleria))
 [MySQL](https://www.mysql.com/) for Windows
 
 [Python](https://www.python.org/downloads/), with the additional libraries of 
+
 -Flask
+
 -Flask-mySQLdb
-Faker
+
+-Faker
