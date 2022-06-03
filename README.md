@@ -29,6 +29,18 @@ Kapetis Adam - 03119034 ([Fleria](https://github.com/Fleria))
 pip install -r requirements.txt
 ```
 
+Install DBMS (MySQL)
+
+Connect to server
+
+Run the following SQL scripts:
+
+[create_tables.sql]
+[dummydata.sql]
+[indexes.sql](https://github.com/Fleria/Elidek-DB/blob/main/SQL_scripts/indexes.sql)
+[view_1.sql](https://github.com/Fleria/Elidek-DB/blob/main/SQL_scripts/view_1.sql)
+[view2_sql](https://github.com/Fleria/Elidek-DB/blob/main/SQL_scripts/view_2.sql)
+
 # ER Diagram
 [ER.pdf](https://github.com/Fleria/Elidek-DB/files/8835586/ER.pdf)
 
