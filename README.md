@@ -7,7 +7,7 @@ Andreadis Dimitrios - 03119403 ([DimitrisAndreadis](https://github.com/DimitrisA
 
 Arkadopoulou Eleftheria - 03119442 ([adamkapetis](https://github.com/adamkapetis)) 
 
-Kapetis Adam - 03119034 ([Fleria] (https://github.com/Fleria))
+Kapetis Adam - 03119034 ([Fleria](https://github.com/Fleria))
 
 
 # Requirements
