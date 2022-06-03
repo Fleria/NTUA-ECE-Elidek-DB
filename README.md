@@ -19,5 +19,4 @@ Kapetis Adam - 03119034 ([Fleria] (https://github.com/Fleria))
 -Flask
 
 -Flask-mySQLdb
-
 -Faker
