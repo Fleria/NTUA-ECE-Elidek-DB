@@ -1,5 +1,6 @@
 # Elidek-DB
 Project for Databases - Electrical Computer Engineering, National Technical University of Athens
+Detail description in the form of a report can be found [here](https://github.com/Fleria/Elidek-DB/tree/main/Documents)
 
 
 # Contributors
@@ -17,6 +18,7 @@ Kapetis Adam - 03119034 ([Fleria](https://github.com/Fleria))
 [Python](https://www.python.org/downloads/), with the additional libraries of 
 
 -Flask
-
 -Flask-mySQLdb
 -Faker
+
+#
