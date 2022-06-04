@@ -52,11 +52,10 @@ python3 run.py
 Copy http://localhost:3000 to browser and view the website
 
 
-# ER Diagram
-![](https://github.com/Fleria/Elidek-DB/files/8835586/ER.pdf)
+# ER and Relational Diagram
+[ER](https://github.com/Fleria/Elidek-DB/files/8835586/ER.pdf)
 
-# Relational Diagram
-![](https://github.com/Fleria/Elidek-DB/blob/main/Documents/Relational.pdf)
+[Relational](https://github.com/Fleria/Elidek-DB/blob/main/Documents/Relational.pdf)
 
 
 
