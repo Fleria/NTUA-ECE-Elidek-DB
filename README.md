@@ -56,6 +56,7 @@ Copy http://localhost:3000 to browser and view the website
 [ER.pdf](https://github.com/Fleria/Elidek-DB/files/8835586/ER.pdf)
 
 # Relational Diagram
+[Relational.pdf](https://github.com/Fleria/Elidek-DB/blob/main/Documents/Relational.pdf)
 
 
 
