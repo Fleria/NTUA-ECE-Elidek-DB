@@ -35,9 +35,9 @@ Connect to server
 
 Run the following SQL scripts:
 
--[create_tables-1.sql]
+-[create_tables-1.sql](https://github.com/Fleria/Elidek-DB/blob/main/SQL_scripts/create_tables-1.sql)
 
--[dummy_dummy_data.sql]
+-[dummy_dummy_data.sql](https://github.com/Fleria/Elidek-DB/blob/main/SQL_scripts/dummy_dummy_data.sql)
 
 -[indexes.sql](https://github.com/Fleria/Elidek-DB/blob/main/SQL_scripts/indexes.sql)
 
