@@ -17,6 +17,8 @@ Kapetis Adam - 03119034 ([Fleria](https://github.com/Fleria))
 
 [Python](https://www.python.org/downloads/), with the additional libraries of 
 
+-numpy
+
 -Flask
 
 -Flask-mySQLdb
