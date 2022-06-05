@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 app.config["MYSQL_USER"] = 'root'
 app.config["MYSQL_PASSWORD"] = ''
-app.config["MYSQL_DB"] = 'elidek'
+app.config["MYSQL_DB"] = 'elidek1'
 app.config["MYSQL_HOST"] = '127.0.0.1'
 app.config["SECRET_KEY"] = '' ## secret key for sessions (signed cookies). Flask uses it to protect the contents of the user session against tampering.
 app.config["WTF_CSRF_SECRET_KEY"] = '' ## token for csrf protection of forms.
