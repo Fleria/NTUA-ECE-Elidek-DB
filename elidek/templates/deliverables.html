@@ -1,0 +1,75 @@
+{% extends "global_layout.html" %}
+{% block content %}
+
+<div class="container" id="row-container">
+    {% include "flash_messages.html" %}
+    <div class="row" id="row">
+         <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">Insert a deliverable</h4>
+                    <p class="card-text" id="paragraph">Insert a deliverable<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/deliverables/insert">Insert</a>
+                </div>
+            </div>
+        </div>
+
+ 	 <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">Delete a deliverable</h4>
+                    <p class="card-text" id="paragraph">Delete a deliverable<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/deliverables/delete">Delete</a>
+                </div>
+            </div>
+        </div>
+
+	<div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">Update a deliverable</h4>
+                    <p class="card-text" id="paragraph">Update a deliverable<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/deliverables/update">Update</a>
+                </div>
+            </div>
+        </div>
+</div>
+</div>
+
+<div class="container">
+    {% include "flash_messages.html" %}
+    <div class="row" id="row">
+        <div class="col-md-12">
+            <div class="card" id="card-container">
+                <div class="card-body" id="card">
+                {% if deliverables|length == 0 %}
+                    <h1 style="margin-top: 5rem;">Not any deliverables found!</h1>
+                {% else %}
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+        <tr> <!--row of cells in a table-->
+            <th>deliverable id</th> <!--td:a cell of a table that contains data-->
+            <th>deliverable summary</th>
+            <th>deliverable project id</th>
+        </tr>
+        </thead> <!--used with tbody, tfoot to specify each part of a table-->
+        <tbody>
+        {% for deliverable in deliverables %}
+        <tr class="customer-row">
+            <td>{{ deliverable.del_id }}</td>
+            <td>{{ deliverable.del_summary }}</td>
+            <td>{{ deliverable.del_proj_id }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+</div>
+{% endif %}
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock content %}
