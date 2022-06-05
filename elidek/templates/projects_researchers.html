@@ -1,0 +1,73 @@
+{% extends "global_layout.html" %}
+{% block content %}
+
+<div class="container" id="row-container">
+    {% include "flash_messages.html" %}
+    <div class="row" id="row">
+         <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">Insert a project for a researcher</h4>
+                    <p class="card-text" id="Insert a project for a researcher></p>
+                    <a class="btn btn-primary" id="show-btn" href="/projects_researchers/insert">Insert</a>
+                </div>
+            </div>
+        </div>
+
+ 	 <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">Delete a a project for a researcher</h4>
+                    <p class="card-text" id="Delete a a project for a researcher></p>
+                    <a class="btn btn-primary" id="show-btn" href="/projects_researchers/delete">Delete</a>
+                </div>
+            </div>
+        </div>
+
+	<div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">Update a a project for a researcher</h4>
+                    <p class="card-text" id="Update a a project for a researcher></p>
+                    <a class="btn btn-primary" id="show-btn" href="/projects_researchers/update">Update</a>
+                </div>
+            </div>
+        </div>
+</div>
+</div>
+
+<div class="container">
+    {% include "flash_messages.html" %}
+    <div class="row" id="row">
+        <div class="col-md-12">
+            <div class="card" id="card-container">
+                <div class="card-body" id="card">
+                {% if projects_researchers|length == 0 %}
+                    <h1 style="margin-top: 5rem;">Not any researchers in projects found!</h1>
+                {% else %}
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+        <tr> <!--row of cells in a table-->
+            <th>Researcher_ID</th> <!--td:a cell of a table that contains data-->
+            <th>Project_ID</th>
+        </tr>
+        </thead> <!--used with tbody, tfoot to specify each part of a table-->
+        <tbody>
+        {% for projects_researcher in projects_researchers %}
+        <tr class="customer-row">
+            <td>{{ projects_researcher.pr_researcher_id }}</td>
+            <td>{{ projects_researcher.pr_proj_id }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+</div>
+{% endif %}
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock content %}

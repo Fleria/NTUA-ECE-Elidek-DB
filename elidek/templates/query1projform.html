@@ -1,0 +1,45 @@
+{% extends "global_layout.html" %}
+{% block content %}
+
+<div class="container" id="row-container">
+
+<div class="col-md-4">
+<form name= "Query 1: View all projects according to duration or executive id" action ="{{url_for('query1projform') }}" method="POST">
+	    <div>
+		 <select id ="duration" name = "duration"> <option selected disabled>
+		 Choose project's duration </option>
+			{% for projdur in projdurs %}
+			<option value = "{{projdur.duration}}">{{projdur.duration}} </option>
+			{% endfor %}
+			</select>
+
+		</div>
+
+		<div>
+		 <select id ="proj_executive_id" name = "proj_executive_id"> <option selected disabled>
+		 Choose project's executive id </option>
+			{% for exid in exids %}
+			<option value = "{{exid.proj_executive_id}}">{{exid.proj_executive_id}} </option>
+			{% endfor %}
+			</select>
+
+		</div>
+
+		<div>
+		 <select id ="start_date" name = "start_date"> <option selected disabled>
+		 Choose project's date </option>
+			{% for date in dates %}
+			<option value = "{{date.start_date}}">{{date.start_date}} </option>
+			{% endfor %}
+			</select>
+
+		</div>
+		
+		<button type="submit">Submit</button>
+
+	     </form>
+        </div>
+
+</div>
+
+{% endblock content %}

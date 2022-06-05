@@ -1,0 +1,42 @@
+{% extends "global_layout.html" %}
+{% block content %}
+
+<div class="container">
+    {% include "flash_messages.html" %}
+    <div class="row" id="row">
+        <div class="col-md-12">
+            <div class="card" id="card-container">
+                <div class="card-body" id="card">
+                {% if query1prog|length == 0 %}
+                    <h1 style="margin-top: 5rem;">Not any programs found!</h1>
+                {% else %}
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>program_id</th>
+                                    <th>program_name</th>
+                                    <th>administration</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for query1prog in query1prog %}
+                                    <tr>
+                                        <td> {{ query1prog.program_id}} </td>
+                                        <td> {{ query1prog.program_name }} </td>
+                                        <td> {{ query1prog.administration }} </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

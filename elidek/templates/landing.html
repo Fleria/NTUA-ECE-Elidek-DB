@@ -1,0 +1,248 @@
+{% extends "global_layout.html" %}
+{% block content %}
+
+<div class="container" id="row-container">
+    {% include "flash_messages.html" %}
+    <div class="row" id="row">
+         
+
+ 	 <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">View/insert/delete/update deliverables</h4>
+                    <p class="card-text" id="paragraph">Simple Query to database to show/insert/delete/update deliverables<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/deliverables">Show/insert/delete/update</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">View/insert/delete/update executives</h4>
+                    <p class="card-text" id="paragraph">Simple Query to database to show/insert/delete/update executives' grades<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/executives">Show/insert/delete/update</a>
+                </div>
+            </div>
+        </div>
+       
+	 <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">View/insert/delete/update organisations</h4>
+                    <p class="card-text" id="paragraph">Simple Query to database to show/insert/delete/update organisations<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/organisations">Show/insert/delete/update</a>
+                </div>
+            </div>
+        </div>
+
+	 <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">View/insert/delete/update the telephones of the organisations</h4>
+                    <p class="card-text" id="paragraph">Simple Query to database to show/insert/delete/update the telephones of the organisations<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/organisations_telephones">Show/insert/delete/update</a>
+                </div>
+            </div>
+        </div>
+
+	<div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">View/insert/delete/update programs</h4>
+                    <p class="card-text" id="paragraph">Simple Query to database to show/insert/delete/update programs<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/programs">Show/insert/delete/update</a>
+                </div>
+            </div>
+        </div>	
+
+	<div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">View/insert/delete/update projects</h4>
+                    <p class="card-text" id="paragraph">Simple Query to database to show/insert/delete/update projects<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/projects">Show/insert/delete/update</a>
+                </div>
+            </div>
+        </div>	
+
+	<div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">View/insert/delete/update the projects of the researchers</h4>
+                    <p class="card-text" id="paragraph">Simple Query to database to show/insert/delete/update the projects of the researchers<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/projects_researchers">Show/insert/delete/update</a>
+                </div>
+            </div>
+        </div>
+
+	<div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">View/insert/delete/update research centers</h4>
+                    <p class="card-text" id="paragraph">Simple Query to database to show/insert/delete/update research centers<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/research_centers">Show/insert/delete/update</a>
+                </div>
+            </div>
+        </div>
+
+	<div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">View/insert/delete/update researchers</h4>
+                    <p class="card-text" id="paragraph">Simple Query to database to show/insert/delete/update researchers<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/researchers">Show/insert/delete/update</a>
+                </div>
+            </div>
+        </div>
+
+	<div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">View/insert/delete/update scientific fields</h4>
+                    <p class="card-text" id="paragraph">Simple Query to database to show scientific fields<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/scientific_fields">Show/insert/delete/update</a>
+                </div>
+            </div>
+        </div>
+
+	<div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">View/insert/delete/update the projects along with their scientific fields</h4>
+                    <p class="card-text" id="paragraph">Simple Query to database to show projects along with their scientific fields<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/scientific_fields_projects">Show/insert/delete/update</a>
+                </div>
+            </div>
+        </div>  
+
+	<div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">View/insert/delete/update univerities</h4>
+                    <p class="card-text" id="paragraph">Simple Query to database to show/insert/delete/update universities<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/universities">Show/insert/delete/update</a>
+                </div>
+            </div>
+        </div>   
+
+    </div>
+</div>
+
+<br><br><br>
+
+<div class="container" id="row-container">
+    {% include "flash_messages.html" %}
+    <div class="row" id="row">
+
+	<div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">Query 1:View all programs</h4>
+                    <p class="card-text" id="paragraph">Simple Query to database to show all programs<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/query1prog">Show</a>
+                </div>
+            </div>
+        </div>  
+
+
+	<div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">Query 1:View all projects for a specific executive id,duration and date</h4>
+                    <p class="card-text" id="paragraph">Simple Query to database to show all projects<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/query1projform">Show</a>
+                </div>
+            </div>
+        </div>  
+
+
+
+
+	 <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">Query 2:View all projects per researcher</h4>
+                    <p class="card-text" id="paragraph">Simple Query to database to show all projects per researcher<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/query1proj">Show</a> 
+                </div>
+            </div>
+        </div> 
+
+	<div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">Query 2:View all telephones of the organisations</h4>
+                    <p class="card-text" id="paragraph">Simple Query to database to show all telephones of the organisation<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/query2view2">Show</a> 
+                </div>
+            </div>
+        </div> 
+	
+
+        <div class="col-md-4">
+            <form name= "Query 3: Enter a scientific field" action ="{{url_for('query3') }}" method="POST">
+	     <div>
+		 <label for="sfname">Query 3: Enter a scientific field to see its researchers and projects:
+            </label><br>
+	      <input type="text" name="sfname" placeholder="Enter scientific field's name">
+		</div>
+	     </form>
+        </div>
+
+	<div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">Query 4:View organisations with the same number of projects for two consecutive years which is at aleast 10</h4>
+                    <p class="card-text" id="paragraph">Simple Query to database to show the organisations<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/query4">Show</a>
+                </div>
+            </div>
+        </div>   
+
+	<div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">Query 5:View the three most frequent scientific fields pairs among projects</h4>
+                    <p class="card-text" id="paragraph">Simple Query to database to show the three most frequent scientific fields pairs among projects<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/query5">Show</a>
+                </div>
+            </div>
+        </div>  
+
+	<div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">Query 6: Show researchers below 40 with most active projects and the respective number of these projects</h4>
+                    <p class="card-text" id="paragraph">Simple Query to database to show theresearchers below 40 with most active projects and the respective number of these projects<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/query6">Show</a>
+                </div>
+            </div>
+        </div>  
+
+	<div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">Query 7:View the 5 executives who have funded the projects the most</h4>
+                    <p class="card-text" id="paragraph">Simple Query to database to show the 5 executives who have funded the projects the most<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/query7">Show</a>
+                </div>
+            </div>
+        </div>  
+
+	
+	<div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">Query 8:View the researchers who work on projects without deliverables</h4>
+                    <p class="card-text" id="paragraph">Simple Query to database to show the researchers who work on projects without deliverables<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/query8">Show</a>
+                </div>
+            </div>
+        </div>  
+
+       
+    </div>
+</div>
+
+{% endblock content %}

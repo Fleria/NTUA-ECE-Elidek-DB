@@ -1,0 +1,41 @@
+{% extends "global_layout.html" %}
+{% block content %}
+<div class="container">
+    {% include "flash_messages.html" %}
+    <div class="row" id="row">
+        <div class="col-md-12">
+            <div class="card" id="card-container">
+                <div class="card-body" id="card">
+                {% if query4|length == 0 %}
+                    <h1 style="margin-top: 5rem;">Not any organisations found!</h1>
+                {% else %}
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+        <tr> <!--row of cells in a table-->
+            <th>organisation name</th> <!--td:a cell of a table that contains data-->
+            <th>first year</th>
+	    <th>second year</th>
+	    <th>prpjects per year</th>
+        </tr>
+        </thead> <!--used with tbody, tfoot to specify each part of a table-->
+        <tbody>
+        {% for query4 in query4 %}
+        <tr class="customer-row">
+            <td>{{ query4.organisation }}</td>
+	    <td>{{ query4.first_year }}</td>
+	    <td>{{ query4.second_year }}</td>
+	    <td>{{ query4.projects_per_year }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+</div>
+{% endif %}
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock content %}

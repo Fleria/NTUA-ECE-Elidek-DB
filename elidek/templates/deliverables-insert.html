@@ -1,0 +1,31 @@
+{% extends "global_layout.html" %}
+{% block content %}
+<div class="container" id="row-container">
+    {% include "flash_messages.html" %}
+    <div class="row" id="row">
+
+        <div class="col-md-4">
+            <form name= "Enter a new deliverable" action ="{{url_for('insdel') }}" method="POST">
+
+		<div>
+		 <label for="del_summary">Enter the deliverable's summary:
+            </label><br>
+	      <input type="text" name="del_summary" placeholder="Enter summary">
+		</div>
+
+	     <div>
+		 <select id ="ID" name = "del_proj_id"> <option selected disabled>
+		 Choose deliverable's project ID </option>
+			{% for pid in projids %}
+			<option value = "{{pid.proj_id}}">{{pid.proj_id}}</option>
+			{% endfor %}
+			</select>
+
+		</div>
+		<button type="submit">Submit</button>
+	     </form>
+        </div>
+</div>
+</div>
+
+{% endblock content %}

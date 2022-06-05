@@ -1,0 +1,25 @@
+{% extends "global_layout.html" %}
+{% block content %}
+<div class="container" id="row-container">
+    {% include "flash_messages.html" %}
+    <div class="row" id="row">
+
+        <div class="col-md-4">
+            <form name= "Delete an executive" action ="{{url_for('delexec') }}" method="POST">
+
+	     <div>
+		 <select id ="executive_id" name = "executive_id"> <option selected disabled>
+		 Choose executive's id </option>
+			{% for exid in exids %}
+			<option value = "{{exid.executive_id}}">{{exid.executive_id}}</option>
+			{% endfor %}
+			</select>
+
+		</div>
+		<button type="submit">Submit</button>
+	     </form>
+        </div>
+</div>
+</div>
+
+{% endblock content %}

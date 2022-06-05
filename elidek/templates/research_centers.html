@@ -1,0 +1,75 @@
+{% extends "global_layout.html" %}
+{% block content %}
+
+<div class="container" id="row-container">
+    {% include "flash_messages.html" %}
+    <div class="row" id="row">
+         <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">Insert a research center</h4>
+                    <p class="card-text" id="paragraph">Insert a research center<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/research_centers/insert">Insert</a>
+                </div>
+            </div>
+        </div>
+
+ 	 <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">Delete  a research center</h4>
+                    <p class="card-text" id="paragraph">Delete a research center<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/research_centers/delete">Delete</a>
+                </div>
+            </div>
+        </div>
+
+	<div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">Update a research center</h4>
+                    <p class="card-text" id="paragraph">Update a research center<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/research_centers/update">Update</a>
+                </div>
+            </div>
+        </div>
+</div>
+</div>
+
+<div class="container">
+    {% include "flash_messages.html" %}
+    <div class="row" id="row">
+        <div class="col-md-12">
+            <div class="card" id="card-container">
+                <div class="card-body" id="card">
+                {% if research_centers|length == 0 %}
+                    <h1 style="margin-top: 5rem;">Not any research centers found!</h1>
+                {% else %}
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+        <tr> <!--row of cells in a table-->
+            <th>ID</th> <!--td:a cell of a table that contains data-->
+            <th>Budget_minedu</th>
+            <th>Budget_private</th>
+        </tr>
+        </thead> <!--used with tbody, tfoot to specify each part of a table-->
+        <tbody>
+        {% for research_center in research_centers %}
+        <tr class="customer-row">
+            <td>{{ research_center.research_center_org_id }}</td>
+            <td>{{ research_center.budget_minedu }}</td>
+            <td>{{ research_center.budget_private }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+</div>
+{% endif %}
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock content %}

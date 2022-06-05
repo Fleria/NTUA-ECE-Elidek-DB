@@ -1,0 +1,25 @@
+{% extends "global_layout.html" %}
+{% block content %}
+<div class="container" id="row-container">
+    {% include "flash_messages.html" %}
+    <div class="row" id="row">
+
+        <div class="col-md-4">
+            <form name= "Delete a researcher" action ="{{url_for('delres') }}" method="POST">
+
+	     <div>
+		 <select id ="researcher_id" name = "researcher_id"> <option selected disabled>
+		 Choose researcher's id </option>
+			{% for resid in resids %}
+			<option value = "{{resid.researcher_id}}">{{resid.researcher_id}}</option>
+			{% endfor %}
+			</select>
+
+		</div>
+		<button type="submit">Submit</button>
+	     </form>
+        </div>
+</div>
+</div>
+
+{% endblock content %}

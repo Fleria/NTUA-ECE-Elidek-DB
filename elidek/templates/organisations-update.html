@@ -1,0 +1,66 @@
+{% extends "global_layout.html" %}
+{% block content %}
+<div class="container" id="row-container">
+    {% include "flash_messages.html" %}
+    <div class="row" id="row">
+
+        <div class="col-md-4">
+            <form name= "Update an organisation" action ="{{url_for('uporg') }}" method="POST">
+	<div>
+		 <select id ="organisation_id" name = "organisation_id"> <option selected disabled>
+		 Choose organisation's id </option>
+			{% for orgid in orgids %}
+			<option value = "{{orgid.organisation_id}}">{{orgid.organisation_id}}</option>
+			{% endfor %}
+			</select>
+
+		</div>
+
+
+		<div>
+		 <label for="organisation_name">Enter the organisation's name:
+            </label><br>
+	      <input type="text" name="organisation_name" placeholder="Enter name">
+		</div>
+
+		<div>
+		 <label for="abbreviation">Enter the organisations's abbreviation:
+            </label><br>
+	      <input type="text" name="abbreviation" placeholder="Enter abbreviation">
+		</div>
+
+
+		 <select id ="category" name = "category"> <option selected disabled>
+		 Choose organisation's category </option>
+			{% for cat in cats %}
+			<option value = "{{cat.category}}">{{cat.category}}</option>
+			{% endfor %}
+			</select>
+
+		</div>
+
+		<div>
+		 <label for="postal_code">Enter the organisation's postal code:
+            </label><br>
+	      <input type="text" name="postal_code" placeholder="Enter postal code">
+		</div>
+
+		<div>
+		 <label for="street">Enter the organisation's street:
+            </label><br>
+	      <input type="text" name="street" placeholder="Enter street">
+		</div>
+
+		<div>
+		 <label for="town">Enter the organisation's town:
+            </label><br>
+	      <input type="text" name="town" placeholder="Enter town">
+		</div>
+	    
+		<button type="submit">Submit</button>
+	     </form>
+        </div>
+</div>
+</div>
+
+{% endblock content %}

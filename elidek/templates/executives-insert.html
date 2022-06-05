@@ -1,0 +1,22 @@
+{% extends "global_layout.html" %}
+{% block content %}
+<div class="container" id="row-container">
+    {% include "flash_messages.html" %}
+    <div class="row" id="row">
+
+        <div class="col-md-4">
+            <form name= "Enter a new executive" action ="{{url_for('insexec') }}" method="POST">
+
+		<div>
+		 <label for="ename">Enter the executive name:
+            </label><br>
+	      <input type="text" name="ename" placeholder="Enter name">
+		</div>
+
+		<button type="submit">Submit</button>
+	     </form>
+        </div>
+</div>
+</div>
+
+{% endblock content %}

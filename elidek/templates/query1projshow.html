@@ -1,0 +1,66 @@
+{% extends "global_layout.html" %}
+{% block content %}
+
+
+<div class="container">
+    {% include "flash_messages.html" %}
+    <div class="row" id="row">
+        <div class="col-md-12">
+            <div class="card" id="card-container">
+                <div class="card-body" id="card">
+                {% if query1proj|length == 0 %}
+                    <h1 style="margin-top: 5rem;">Not any projectsfound!</h1>
+                {% else %}
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>proj_id</th>
+                                    <th>proj_title</th>
+                                    <th>proj_amount</th>
+				    <th>summary</th>
+				    <th>start_date</th>
+                                    <th>expiry_date</th>
+                                    <th>duration</th>
+				    <th>evaluation_grade</th>
+				    <th>evaluation_date</th>
+				    <th>proj_executive_id</th>
+				    <th>proj_organisation_id</th>
+                                    <th>scientific_officer_id</th>
+                                    <th>evaluator_id</th>
+				    <th>program_id</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for query1proj in query1proj %}
+                                    <tr>
+                                        <td> {{ query1proj.proj_id }} </td>
+                                        <td> {{ query1proj.proj_title }} </td>
+                                        <td> {{ query1proj.proj_amount }} </td>
+					<td> {{ query1proj.summary }} </td>
+					<td> {{ query1proj.start_date }} </td>
+                                        <td> {{ query1proj.expiry_date }} </td>
+                                        <td> {{ query1proj.duration }} </td>
+					<td> {{ query1proj.evaluation_grade }} </td>
+					<td> {{ query1proj.evaluation_date }} </td>
+					<td> {{ query1proj.proj_executive_id }} </td>
+					<td> {{ query1proj.proj_organisation_id }} </td>
+                                        <td> {{ query1proj.scientific_officer_id }} </td>
+                                        <td> {{ query1proj.evaluator_id }} </td>
+					<td> {{ query1proj.program_id }} </td>
+
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
