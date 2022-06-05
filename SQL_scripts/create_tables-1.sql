@@ -14,7 +14,6 @@ Date: 2022-03-03 14:01:37
 */
 
 SET FOREIGN_KEY_CHECKS=1;
-SET @sum = 0;
 
 -- ----------------------------
 -- Create database
@@ -24,7 +23,7 @@ CREATE SCHEMA elidek1;
 USE elidek1;
 
 -- ----------------------------
--- Table structure
+-- Table structure for grades
 -- ----------------------------
 
 DROP TABLE IF EXISTS organisations;
@@ -56,7 +55,7 @@ DROP TABLE IF EXISTS organisations_telephones;
 CREATE TABLE organisations_telephones (
 ot_organisation_id int NOT NULL,
 telephone varchar(15) NOT NULL,
-CONSTRAINT ot_organisation_id FOREIGN KEY (ot_organisation_id) REFERENCES organisations(organisation_id) ON DELETE restrict ON UPDATE CASCADE
+CONSTRAINT ot_organisation_id FOREIGN KEY (ot_organisation_id) REFERENCES organisations(organisation_id) ON DELETE cascade ON UPDATE restrict
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS executives;
@@ -99,17 +98,18 @@ CREATE TABLE projects (
   summary varchar(200),
   start_date date NOT NULL,
   expiry_date date NOT NULL,
-  CHECK(start_date<expiry_date),
+  /*constraint datecheck CHECK (start_date<expiry_date),*/
   duration int as (timestampdiff(year,start_date,expiry_date)), 
-  CHECK (0<duration<5),
+  /*CHECK (0<duration<5),*/
   evaluation_grade smallint NOT NULL,
   evaluation_date date NOT NULL,
-  CHECK (evaluation_date<start_date),
+  /*CHECK (evaluation_date<start_date),*/
   proj_executive_id int NOT NULL,
   proj_organisation_id int NOT NULL,
   scientific_officer_id int NOT NULL,
   evaluator_id int NOT NULL,
   program_id int NOT NULL,
+  /*unique unqiue_title_per_organisation (proj_title,proj_organisation_id),*/
   CONSTRAINT proj_executive_id FOREIGN KEY (proj_executive_id) REFERENCES executives (executive_id) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT proj_organisation_id FOREIGN KEY (proj_organisation_id) REFERENCES organisations (organisation_id) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT scientific_officer_id FOREIGN KEY (scientific_officer_id) REFERENCES researchers (researcher_id) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -117,11 +117,14 @@ CREATE TABLE projects (
   CONSTRAINT program_id FOREIGN KEY (program_id) REFERENCES programs(program_id) ON DELETE CASCADE ON UPDATE CASCADE
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
   
-  DROP TABLE IF EXISTS deliverables;
+DROP TABLE IF EXISTS deliverables;
 CREATE TABLE deliverables  (
-del_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+del_id int NOT NULL AUTO_INCREMENT,
+del_title varchar(45) not null,
 del_summary varchar(200), 
+del_date date not null,
 del_proj_id int NOT NULL,
+key idx_del_id(del_id),
 CONSTRAINT del_proj_id FOREIGN KEY (del_proj_id) REFERENCES projects (proj_id) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -135,13 +138,29 @@ CONSTRAINT sfp_proj_id FOREIGN KEY (sfp_proj_id) REFERENCES projects (proj_id) O
 
 DROP TABLE IF EXISTS projects_researchers;
 CREATE TABLE projects_researchers  (
-pr_researcher_id int,
+pr_researcher_id int default null,
 pr_proj_id int NOT NULL,
 CONSTRAINT pr_researcher_id FOREIGN KEY (pr_researcher_id) REFERENCES researchers (researcher_id) ON DELETE CASCADE ON UPDATE CASCADE, 
 CONSTRAINT pr_proj_id FOREIGN KEY (pr_proj_id) REFERENCES projects (proj_id) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-/*triggers*/
+
+
+DELIMITER //
+create trigger upd_proj_evaluator before update on projects 
+for each row
+begin
+	if exists( select * from projects 
+inner join projects_researchers
+on (proj_id=pr_proj_id and proj_id=new.proj_id)
+where new.evaluator_id=pr_researcher_id )
+then
+		SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT = 'EvAluAtOr CanT WOrk At tHe PrOJeCt';
+        end if;
+end;//
+delimiter ;
+
 
 DELIMITER //
 create trigger ins_org after insert on organisations FOR EACH ROW
@@ -149,6 +168,57 @@ begin
 	insert into funds (f_organisation_id,f_category) values (new.organisation_id,new.category) ;
 end; //
 delimiter ;
+
+DELIMITER //
+create trigger ins_proj_money before insert on projects 
+for each row
+begin
+	if exists( select sum(proj_amount) summ, mon.private p, mon.gov g from (
+	projects a inner join organisations b
+	on (organisation_id=new.proj_organisation_id and organisation_id=proj_organisation_id)
+	inner join funds mon on (organisation_id=f_organisation_id and f_category=category))
+	group by organisation_id
+	having summ + new.proj_amount > p + g )
+then
+		SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT = 'not enough money';
+        end if;
+end;//
+delimiter ;
+
+DELIMITER //
+create trigger upd_proj_money before update on projects 
+for each row
+begin
+	if exists( select sum(proj_amount) summ, mon.private p, mon.gov g from (
+	projects a inner join organisations b
+	on (organisation_id=new.proj_organisation_id and organisation_id=proj_organisation_id)
+	inner join funds mon on (organisation_id=f_organisation_id and f_category=category))
+	group by organisation_id
+	having summ + new.proj_amount > p + g )
+then
+		SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT = 'not enough money';
+        end if;
+end;//
+
+delimiter ;
+
+DELIMITER //
+create trigger upd_proj_sci_off before update on projects 
+for each row
+begin
+	if not exists( select * from projects 
+inner join projects_researchers
+on (proj_id=pr_proj_id and proj_id=new.proj_id)
+where new.evaluator_id=pr_researcher_id )
+then
+		SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT = 'EvAluAtOr CanT WOrk At tHe PrOJeCt';
+        end if;
+end;//
+delimiter ;
+
 
 
 
