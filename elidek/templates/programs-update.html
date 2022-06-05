@@ -1,0 +1,40 @@
+{% extends "global_layout.html" %}
+{% block content %}
+<div class="container" id="row-container">
+    {% include "flash_messages.html" %}
+    <div class="row" id="row">
+
+        <div class="col-md-4">
+            <form name= "Update an executive" action ="{{url_for('upprog') }}" method="POST">
+	<div>
+		 <select id ="program_id" name = "program_id"> <option selected disabled>
+		 Choose program's id </option>
+			{% for progid in progids %}
+			<option value = "{{progid.program_id}}">{{progid.program_id}}</option>
+			{% endfor %}
+			</select>
+
+		</div>
+
+
+
+		<div>
+		 <label for="program_name">Enter the program's name:
+            </label><br>
+	      <input type="text" name="program_name" placeholder="Enter name">
+		</div>
+		
+		<div>
+		 <label for="administration">Enter the program's administration:
+            </label><br>
+	      <input type="text" name="administration" placeholder="Enter administration">
+		</div>
+		
+	    
+		<button type="submit">Submit</button>
+	     </form>
+        </div>
+</div>
+</div>
+
+{% endblock content %}

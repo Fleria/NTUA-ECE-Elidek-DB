@@ -1,0 +1,39 @@
+{% extends "global_layout.html" %}
+{% block content %}
+<div class="container">
+    {% include "flash_messages.html" %}
+    <div class="row" id="row">
+        <div class="col-md-12">
+            <div class="card" id="card-container">
+                <div class="card-body" id="card">
+                {% if query5|length == 0 %}
+                    <h1 style="margin-top: 5rem;">Not any companies found!</h1>
+                {% else %}
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+        <tr> <!--row of cells in a table-->
+            <th>scientific_field_1</th> <!--td:a cell of a table that contains data-->
+            <th>scientific_field_2</th>
+	    <th>pair_appearance_count</th>
+        </tr>
+        </thead> <!--used with tbody, tfoot to specify each part of a table-->
+        <tbody>
+        {% for query5 in query5 %}
+        <tr class="customer-row">
+            <td>{{ query5.sf1 }}</td>
+            <td>{{ query5.sf2 }}</td>
+	    <td>{{ query5.pair_appearance_count }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+</div>
+{% endif %}
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock content %}

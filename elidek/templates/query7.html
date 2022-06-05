@@ -1,0 +1,39 @@
+{% extends "global_layout.html" %}
+{% block content %}
+<div class="container">
+    {% include "flash_messages.html" %}
+    <div class="row" id="row">
+        <div class="col-md-12">
+            <div class="card" id="card-container">
+                <div class="card-body" id="card">
+                {% if query7|length == 0 %}
+                    <h1 style="margin-top: 5rem;">Not any executives found!</h1>
+                {% else %}
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+        <tr> <!--row of cells in a table-->
+            <th>executive name</th> <!--td:a cell of a table that contains data-->
+            <th>organisation name</th>
+	    <th>total amount</th>
+        </tr>
+        </thead> <!--used with tbody, tfoot to specify each part of a table-->
+        <tbody>
+        {% for query7 in query7 %}
+        <tr class="customer-row">
+            <td>{{ query7.ename }}</td>
+	    <td>{{ query7.organisation_name }}</td>
+	    <td>{{ query7.total_amount }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+</div>
+{% endif %}
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock content %}

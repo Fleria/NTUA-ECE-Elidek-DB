@@ -1,0 +1,39 @@
+{% extends "global_layout.html" %}
+{% block content %}
+<div class="container">
+    {% include "flash_messages.html" %}
+    <div class="row" id="row">
+        <div class="col-md-12">
+            <div class="card" id="card-container">
+                <div class="card-body" id="card">
+                {% if query8|length == 0 %}
+                    <h1 style="margin-top: 5rem;">Not any researchers found!</h1>
+                {% else %}
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+        <tr> <!--row of cells in a table-->
+            <th>first_name</th> <!--td:a cell of a table that contains data-->
+            <th>last_name</th>
+	    <th>projcount</th>
+        </tr>
+        </thead> <!--used with tbody, tfoot to specify each part of a table-->
+        <tbody>
+        {% for query8 in query8 %}
+        <tr class="customer-row">
+            <td>{{ query8.first_name }}</td>
+            <td>{{ query8.last_name }}</td>
+	    <td>{{ query8.projcount }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+</div>
+{% endif %}
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock content %}

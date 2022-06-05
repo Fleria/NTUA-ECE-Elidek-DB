@@ -1,0 +1,76 @@
+{% extends "global_layout.html" %}
+{% block content %}
+
+<div class="container" id="row-container">
+    {% include "flash_messages.html" %}
+    <div class="row" id="row">
+         <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">Insert a program</h4>
+                    <p class="card-text" id="paragraph">Insert a program<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/programs/insert">Insert</a>
+                </div>
+            </div>
+        </div>
+
+ 	 <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">Delete a program</h4>
+                    <p class="card-text" id="paragraph">Delete a program<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/programs/delete">Delete</a>
+                </div>
+            </div>
+        </div>
+
+	<div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">Update a program</h4>
+                    <p class="card-text" id="paragraph"Update a program<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/programs/update">Update</a>
+                </div>
+            </div>
+        </div>
+</div>
+</div>
+
+
+<div class="container">
+    {% include "flash_messages.html" %}
+    <div class="row" id="row">
+        <div class="col-md-12">
+            <div class="card" id="card-container">
+                <div class="card-body" id="card">
+                {% if programs|length == 0 %}
+                    <h1 style="margin-top: 5rem;">Not any programs found!</h1>
+                {% else %}
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+        <tr> <!--row of cells in a table-->
+            <th>ID</th> <!--td:a cell of a table that contains data-->
+            <th>Name</th>
+            <th>Administration</th>
+        </tr>
+        </thead> <!--used with tbody, tfoot to specify each part of a table-->
+        <tbody>
+        {% for program in programs %}
+        <tr class="customer-row">
+            <td>{{ program.program_id }}</td>
+            <td>{{ program.program_name }}</td>
+            <td>{{ program.administration }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+</div>
+{% endif %}
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock content %}
