@@ -1,5 +1,6 @@
 # Elidek-DB
-Final project of the course Databases - 6th semester, Electrical Computer Engineering, National Technical University of Athens
+Final project of the course Databases - 6th semester, Electrical Computer Engineering, National Technical University of Athens.
+
 Detail description in the form of a report can be found [here](https://github.com/Fleria/Elidek-DB/tree/main/Documents)
 
 
